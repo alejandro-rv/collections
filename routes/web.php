@@ -14,3 +14,5 @@
 Route::get('', 'CollectionController@index');
 Route::get('create', 'CollectionController@create');
 Route::post('store', 'CollectionController@store');
+Route::get('{id}/edit', 'CollectionController@edit');
+Route::put('{id}', 'CollectionController@update');
