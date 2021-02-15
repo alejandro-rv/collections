@@ -12,3 +12,5 @@
 */
 
 Route::get('', 'CollectionController@index');
+Route::get('create', 'CollectionController@create');
+Route::post('store', 'CollectionController@store');
