@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Collection;
+use App\Collectable;
 
 class CollectionController extends Controller
 {
@@ -46,6 +47,20 @@ class CollectionController extends Controller
         $collection->save();
 
         return redirect('/');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('show', [
+            'collection' => Collection::find($id),
+            'collectables' => Collectable::where('collection_id', $id)->get()
+        ]);
     }
 
     /**
