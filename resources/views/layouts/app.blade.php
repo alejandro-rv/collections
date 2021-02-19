@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.1/css/bulma.min.css">
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/alpinejs@2.8.0"></script>
+  <script src="https://unpkg.com/jquery@3.5.1"></script>
 </head>
 <body>
   @yield('content')
