@@ -9,17 +9,19 @@
 
     <ul class="my-6">
       @foreach ($collections as $collection)
-        <li class="box">
-          <p class="subtitle">{{ $collection->name }}</p>
-          <hr>
-          <a class="mr-3" href="{{ url($collection->id) }}">
-            Show
-          </a>
-          <a href="{{ url($collection->id . '/edit') }}">
-            Edit
-          </a>
-        </li>
+        @component('index.collection-box', [ 'collection' => $collection ])
+        @endcomponent
       @endforeach
     </ul>
   </div>
+
+  <script>
+    function openDeleteModal(id) {
+      $(`#modal-delete-${id}`).addClass('is-active')
+    }
+
+    function closeDeleteModal(id) {
+      $(`#modal-delete-${id}`).removeClass('is-active')
+    }
+  </script>
 @endsection
