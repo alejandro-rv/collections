@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Edit ' . $collection->name)
+@section('title', "Edit $collection->name")
 
 @section('content')
   <div class="container my-6">
-    <p class="title">Edit collection</p>
+    <p class="title">Edit {{ $collection->name }}</p>
     <a class="button" href="javascript:history.back()">Back</a>
 
     @if ($errors->any())
