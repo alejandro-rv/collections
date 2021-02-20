@@ -13,7 +13,7 @@
     <footer class="modal-card-foot">
       <form
         method="post"
-        action="{{ url("/$collection->id/$collectable->id") }}"
+        action="{{ url("/$collectable->collection_id/$collectable->id") }}"
       >
         @csrf
         @method('delete')
@@ -35,7 +35,10 @@
 <li class="box">
   <p class="subtitle">{{ $collectable->name }}</p>
   <hr>
-  <a class="mr-3" href="{{ url("/$collection->id/$collectable->id/edit") }}">
+  <a
+    class="mr-3"
+    href="{{ url("/$collectable->collection_id/$collectable->id/edit") }}"
+  >
     Edit
   </a>
   <a class="mr-3 has-text-danger" onclick="openModal('{{ $modal_id }}')">

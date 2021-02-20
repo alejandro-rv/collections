@@ -58,8 +58,7 @@ class CollectionController extends Controller
     public function show($id)
     {
         return view('show', [
-            'collection' => Collection::find($id),
-            'collectables' => Collectable::where('collection_id', $id)->get()
+            'collection' => Collection::find($id)
         ]);
     }
 
