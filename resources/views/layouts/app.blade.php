@@ -14,5 +14,15 @@
 </head>
 <body>
   @yield('content')
+
+  <script>
+    function openModal(id) {
+      $('#' + id).addClass('is-active')
+    }
+
+    function closeModal(id) {
+      $('#' + id).removeClass('is-active')
+    }
+  </script>
 </body>
 </html>

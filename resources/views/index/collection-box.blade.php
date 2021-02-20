@@ -1,14 +1,11 @@
-<div id="modal-delete-{{ $collection->id }}" class="modal">
+<div id="{{ $modal_id }}" class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">
         Are you sure to delete {{ $collection->name }}?
       </p>
-      <button
-        class="delete"
-        onclick="closeDeleteModal({{ $collection->id }})"
-      ></button>
+      <button class="delete" onclick="closeModal('{{ $modal_id }}')"></button>
     </header>
     <section class="modal-card-body has-background-light">
       Anything within it will be permanently lost.
@@ -20,7 +17,7 @@
         <button
           type="button"
           class="button"
-          onclick="closeDeleteModal({{ $collection->id }})"
+          onclick="closeModal('{{ $modal_id }}')"
         >
           Cancel
         </button>
@@ -41,10 +38,7 @@
   <a class="mr-3" href="{{ url($collection->id . '/edit') }}">
     Edit
   </a>
-  <a
-    class="mr-3 has-text-danger"
-    onclick="openDeleteModal({{ $collection->id }})"
-  >
+  <a class="mr-3 has-text-danger" onclick="openModal('{{ $modal_id }}')">
     Delete
   </a>
 </li>

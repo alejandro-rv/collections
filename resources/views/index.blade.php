@@ -9,19 +9,12 @@
 
     <ul class="my-6">
       @foreach ($collections as $collection)
-        @component('index.collection-box', [ 'collection' => $collection ])
+        @component('index.collection-box', [
+          'modal_id' => "modal-delete-$collection->id",
+          'collection' => $collection
+        ])
         @endcomponent
       @endforeach
     </ul>
   </div>
-
-  <script>
-    function openDeleteModal(id) {
-      $(`#modal-delete-${id}`).addClass('is-active')
-    }
-
-    function closeDeleteModal(id) {
-      $(`#modal-delete-${id}`).removeClass('is-active')
-    }
-  </script>
 @endsection
