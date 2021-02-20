@@ -10,5 +10,15 @@
       Add
     </a>
     <hr>
+    <ul class="my-6">
+      @foreach ($collectables as $collectable)
+        @component('show.collectable-box', [
+          'modal_id' => "modal-delete-$collectable->id",
+          'collection' => $collection,
+          'collectable' => $collectable
+        ])
+        @endcomponent
+      @endforeach
+    </ul>
   </div>
 @endsection
