@@ -109,4 +109,39 @@ class CollectionController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * Show the form for creating a new subresource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createCollectable($id)
+    {
+        return view('add', [
+            'collection' => Collection::find($id)
+        ]);
+    }
+
+
+    /**
+     * Store a newly created subresource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeCollectable(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $collectable = new Collectable;
+        $collectable->collection_id = $id;
+        $collectable->name = $request->name;
+        $collectable->save();
+
+        return redirect("/$id");
+    }
 }

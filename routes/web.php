@@ -18,3 +18,5 @@ Route::get('{id}', 'CollectionController@show');
 Route::get('{id}/edit', 'CollectionController@edit');
 Route::put('{id}', 'CollectionController@update');
 Route::delete('{id}', 'CollectionController@destroy');
+Route::get('{id}/add', 'CollectionController@createCollectable');
+Route::post('{id}', 'CollectionController@storeCollectable');
