@@ -122,7 +122,6 @@ class CollectionController extends Controller
         ]);
     }
 
-
     /**
      * Store a newly created subresource in storage.
      *
@@ -140,6 +139,56 @@ class CollectionController extends Controller
         $collectable->collection_id = $id;
         $collectable->name = $request->name;
         $collectable->save();
+
+        return redirect("/$id");
+    }
+
+    /**
+     * Show the form for editing the specified subresource.
+     *
+     * @param  int  $id
+     * @param  int  $collectableId
+     * @return \Illuminate\Http\Response
+     */
+    public function editCollectable($id, $collectableId)
+    {
+        return view('edit-collectable', [
+            'collectable' => Collectable::find($collectableId)
+        ]);
+    }
+
+    /**
+     * Update the specified subresource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @param  int  $collectableId
+     * @return \Illuminate\Http\Response
+     */
+    public function updateCollectable(Request $request, $id, $collectableId)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $collectable = Collectable::find($collectableId);
+        $collectable->name = $request->name;
+        $collectable->save();
+
+        return redirect("/$id");
+    }
+
+    /**
+     * Remove the specified subresource from storage.
+     *
+     * @param  int  $id
+     * @param  int  $collectableId
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyCollectable($id, $collectableId)
+    {
+        $collectable = Collectable::find($collectableId);
+        $collectable->delete();
 
         return redirect("/$id");
     }
